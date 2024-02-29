@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.gis',
     'app_prueba',
     # 'django.contrib.admin',
 ]
@@ -75,13 +76,20 @@ WSGI_APPLICATION = 'proyecto.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+
+
+#postgresql://postgres:Bb124dc6BAeFGBfCDE3b3GDA4D5dga6c@roundhouse.proxy.rlwy.net:35800/railway
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': 'my_db',
+        'USER' : 'postgres',
+        'PASSWORD' : 'Bb124dc6BAeFGBfCDE3b3GDA4D5dga6c',
+        'HOST' : 'roundhouse.proxy.rlwy.net',
+        'PORT' : '35800',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -113,7 +121,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
